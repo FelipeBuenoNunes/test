@@ -16,9 +16,9 @@ email=`git log -1 --format="%ae"`
 message=`git log -1 --format="%s"`
 git config --global user.email "$email"
 git config --global user.name "$author"
-echo author
-echo email
-echo message
+echo $author
+echo $email
+echo $message
 
 git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git" "$TEMP_REPO_NAME"
 ls
