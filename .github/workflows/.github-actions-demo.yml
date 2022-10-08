@@ -7,3 +7,6 @@ jobs:
     steps:
       - run: echo "🎉 here"
       - run: pwd
+      - run: ls
+      - run: cd docs
+      - run: pwd
