@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: wiki
-        uses: ./docs/updateWiki/action.yml
+        uses: ./docs/updateWiki
         env:
           tokena: ${{ secrets.GITHUB_TOKEN }}
