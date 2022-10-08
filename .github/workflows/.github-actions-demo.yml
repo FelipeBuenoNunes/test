@@ -5,6 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate Plantuml
+        uses: grassedge/generate-plantuml-action@v1.5
       - run: echo "🎉 here"
       - run: pwd
       - run: ls
