@@ -7,5 +7,5 @@ fi
 
 # Clone repository
 git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY"
-cd "$GITHUB_REPOSITORY"
+# cd "$GITHUB_REPOSITORY"
 pwd
