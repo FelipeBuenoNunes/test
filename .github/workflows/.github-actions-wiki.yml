@@ -1,0 +1,17 @@
+name: GitHub Actions Diagrams
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+
+env:
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: wiki
+        uses: ./docs/updateWiki
+        env:
+          tokem: ${{ secrets.GITHUB_TOKEN }}
