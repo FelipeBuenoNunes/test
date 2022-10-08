@@ -19,7 +19,7 @@ git config --local user.name "$author"
 echo author
 echo email
 echo message
-echo GITHUB_ACTOR
+
 git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git" "$TEMP_REPO_NAME"
 ls
 cd $TEMP_REPO_NAME
