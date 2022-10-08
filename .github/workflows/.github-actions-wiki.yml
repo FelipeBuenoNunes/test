@@ -1,5 +1,5 @@
 name: GitHub Actions Diagrams
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} is update wiki 🚀
 on: [push]
 
 env:
@@ -12,6 +12,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: wiki
-        uses: ./docs/updateWiki
+        uses: /docs/updateWiki
         env:
           token: ${{ secrets.GITHUB_TOKEN }}
