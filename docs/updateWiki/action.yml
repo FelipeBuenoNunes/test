@@ -7,7 +7,5 @@ inputs:
   runs:
     using: "composite"
     steps:
-      - run: ${{ github.action_path }}/main.sh
+      - run: echo Hello
       shell: bash
-      env:
-        TOKEN: ${{ inputs.token }}
