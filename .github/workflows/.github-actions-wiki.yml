@@ -1,5 +1,5 @@
 name: GitHub Actions Diagrams
-run-name: ${{ github.actor }} is update wiki 🚀
+run-name: ${{ github.actor }} is update wiki 🚀🚀
 on: [push]
 
 env:
