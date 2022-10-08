@@ -12,6 +12,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: wiki
-        uses: ./docs/updateWiki
+        uses: ./docs/updateWiki/main.sh
         env:
           tokena: ${{ secrets.GITHUB_TOKEN }}
