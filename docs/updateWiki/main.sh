@@ -9,7 +9,7 @@ echo $TOKEN
 # Clone repository
 #git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY"
 #cd "$GITHUB_REPOSITORY"
-echo "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git"
+echo "https://$GITHUB_ACTOR:@github.com/$GITHUB_REPOSITORY.wiki.git"
 git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git"
-
+ls
 #git commit -m "$message" && git push "https://$GITHUB_ACTOR:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git"
