@@ -2,9 +2,6 @@ name: GitHub Actions update wiki
 run-name: ${{ github.actor }} is update wiki 🚀🚀
 on: [push]
 
-env:
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -12,5 +9,5 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: Run build script
-        run: TOKEM=${{secrets.GITHUB_TOKEN}} ./docs/updateWiki/main.sh
+        run: TOKEN=${{secrets.GITHUB_TOKEN}} ./docs/updateWiki/main.sh
         shell: bash
