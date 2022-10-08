@@ -16,7 +16,7 @@ group first
     return 1e
     test-> testando++: 6
     return 1f
-    test-> testando++: 7
+    test-> testando++: 9
     return 1g
 end
 @enduml
