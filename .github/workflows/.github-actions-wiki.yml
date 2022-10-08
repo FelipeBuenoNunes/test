@@ -11,7 +11,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: wiki
-        uses: ./docs/updateWiki/main.sh
-        env:
-          tokena: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run build script
+        run: ./.github/scripts/build.sh
+        shell: bash
