@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH_DIAGRAMS="./test/docs/diagram/"
+PATH_DIAGRAMS="/docs/diagram"
 
 if [ -z "$TOKEN" ]; then
     echo "Token is not specified"
@@ -31,18 +31,20 @@ function getWikiRepository() {
 }
 
 function getAllSvgs() {
-    FILES_SVG=$(ls $PATH_DIAGRAMS -t -U | grep '\.svg')
+    FILES_SVG=$(ls .$PATH_DIAGRAMS -t -U | grep '\.svg')
     for i in $FILES_SVG; do
-        doMarkdown i
+        doMarkdown $i
     done
 }
 
 function doMarkdown() {
-    file_path=$GITHUB_REPOSITORY/$PATH_DIAGRAMS/$1
-    echo "## first" >> aqui.md
-    echo $file_path >> aqui.md
+    file_path="$GITHUB_REPOSITORY/$PATH_DIAGRAMS/$1"
+    echo "## first"
+    echo $file_path
 }
 
-echo "#BOA" >> Funfou.md
-git add .
-git commit -m "$message" && git push "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git"
+getAllSvgs
+
+# echo "#BOA" >> Funfou.md
+# git add .
+# git commit -m "$message" && git push "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git"
