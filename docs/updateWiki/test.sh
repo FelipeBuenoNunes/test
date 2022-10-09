@@ -6,6 +6,11 @@ then
     PATH_FILE=".$PATH_FILE"
 fi
 
+if [ -z "$TOKEN" ]; then
+    echo "Token is not specified"
+    exit 1
+fi
+
 
 FILES_PUML=$(ls $PATH_FILE -t -U | grep '^[a-z_]\+\.puml$')
 
@@ -16,7 +21,7 @@ function getAndSaveImg() {
 for file_name in $FILES_PUML; do
     CONTENT_FILE=$(<"$PATH_FILE/$file_name") # get file
 
-    THEME_LINK="https://raw.githubusercontent.com/FelipeBuenoNunes/test/main/docs/diagram/puml-theme-sla.puml"
+    THEME_LINK="https://raw.githubusercontent.com/FelipeBuenoNunes/test/main/docs/diagram/puml-theme-sla.puml?token=$TOKEN"
     
     #replace ('include_theme_here) for the theme link
     CONTENT_WITH_THEME=$(sed "s,'include_theme_here,!include $THEME_LINK,g" $PATH_FILE/$file_name)
