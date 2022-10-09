@@ -1,4 +1,6 @@
 @startuml
+!theme sla from .
+
 participant test
 database testando
 database sla123
