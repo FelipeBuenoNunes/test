@@ -9,5 +9,5 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: Run build script
-        run: TOKEN=${{secrets.GITHUB_TOKEN}} ./docs/updateWiki/main.sh
+        run: TOKEN=${{secrets.GITHUB_TOKEN}} ./docs/updateWiki/test.sh
         shell: bash
