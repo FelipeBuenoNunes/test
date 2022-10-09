@@ -1,10 +1,5 @@
 #!/bin/bash
 
-cd ..
-
-git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY" "teste"
-cd teste
-
 PATH_FILE='/docs/diagram'
 if [[ $PATH_FILE =~ ^[^.] ]] 
 then

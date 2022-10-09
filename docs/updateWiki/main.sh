@@ -1,25 +1,47 @@
-#!/bin/sh
+#!/bin/bash
+
+PATH_DIAGRAMS="./test/docs/diagram/"
 
 if [ -z "$TOKEN" ]; then
     echo "Token is not specified"
     exit 1
 fi
 
-# The default name for the wiki repository.
-TEMP_REPO_NAME="wiki-repo" 
+function SetConfigsGit() {
+    # get configs git
+    author=`git log -1 --format="%an"`
+    email=`git log -1 --format="%ae"`
+    message=`git log -1 --format="%s"`
 
-# get configs git
-author=`git log -1 --format="%an"`
-email=`git log -1 --format="%ae"`
-message=`git log -1 --format="%s"`
+    # set configs git
+    git config --global user.email "$email"
+    git config --global user.name "$author"
+}
 
-# set configs git
-git config --global user.email "$email"
-git config --global user.name "$author"
+function getWikiRepository() {
+    cd ..
 
-# clone wiki repository
-git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git" "$TEMP_REPO_NAME"
-cd $TEMP_REPO_NAME
+    # The default name for the wiki repository.
+    TEMP_REPO_NAME="wiki-repo" 
+
+    # clone wiki repository
+    git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git" "$TEMP_REPO_NAME"
+    # move to wiki repository
+    cd $TEMP_REPO_NAME 
+}
+
+function getAllSvgs() {
+    FILES_SVG=$(ls $PATH_DIAGRAMS -t -U | grep '\.svg')
+    for i in $FILES_SVG; do
+        doMarkdown i
+    done
+}
+
+function doMarkdown() {
+    file_path=$GITHUB_REPOSITORY/$PATH_DIAGRAMS/$1
+    echo "## first" >> aqui.md
+    echo $file_path >> aqui.md
+}
 
 echo "#BOA" >> Funfou.md
 git add .
