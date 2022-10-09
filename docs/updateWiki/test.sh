@@ -21,7 +21,7 @@ function getAndSaveImg() {
 for file_name in $FILES_PUML; do
     CONTENT_FILE=$(<"$PATH_FILE/$file_name") # get file
 
-    THEME_LINK="${TOKEN}https://raw.githubusercontent.com/FelipeBuenoNunes/test/main/docs/diagram/puml-theme-sla.puml"
+    THEME_LINK="${TOKEN}@https://raw.githubusercontent.com/FelipeBuenoNunes/test/main/docs/diagram/puml-theme-sla.puml"
     
     #replace ('include_theme_here) for the theme link
     CONTENT_WITH_THEME=$(sed "s,'include_theme_here,!include $THEME_LINK,g" $PATH_FILE/$file_name)
