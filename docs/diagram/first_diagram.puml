@@ -1,5 +1,5 @@
 @startuml
-!import https://raw.githubusercontent.com/FelipeBuenoNunes/test/main/docs/diagram/puml-theme-sla.puml
+!include https://raw.githubusercontent.com/FelipeBuenoNunes/test/main/docs/diagram/puml-theme-sla.puml
 participant test
 database testando
 database sla123
