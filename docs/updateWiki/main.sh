@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/bash 
 
 PATH_DIAGRAMS="/docs/diagram"
 PATH_DIAGRAMS_LOCAL= $(echo $GITHUB_REPOSITORY | grep '/[[:alnum:]\-\.\_]\+$')$PATH_DIAGRAMS
-PATH_DIAGRAMS_GIT="https://github.com/${GITHUB_REPOSITORY}tree/main$PATH_DIAGRAMS"
+PATH_DIAGRAMS_GIT="https://github.com/${GITHUB_REPOSITORY}/tree/main$PATH_DIAGRAMS"
 
 # if [ -z "$TOKEN" ]; then
 #     echo "Token is not specified"
