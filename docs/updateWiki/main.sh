@@ -61,9 +61,7 @@ function getNameToNewFile() {
 }
 
 function doPush() {
-    echo "git::::"
-    git diff
-    if [ -z "$(git diff)" ]; then 
+    if git diff-index --quiet HEAD; then
         echo "there no files to changed"
         exit 0
     elif [[ ! $(pwd) =~ \/$TEMP_REPO_NAME$ ]]; then
