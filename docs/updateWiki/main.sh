@@ -72,11 +72,11 @@ function doPush() {
 }
 
 
-echo "cloning the wiki repository"
+echo "cloning the wiki repository..."
 getWikiRepository
-echo "generating the markdown file"
+echo "generating the markdown file..."
 putEachSvgFile
-echo "setting configs of git"
+echo "setting configs of git..."
 SetConfigsGit
-echo "starting the function doPush"
+echo "starting the function doPush..."
 doPush
