@@ -61,6 +61,7 @@ function getNameToNewFile() {
 }
 
 function doPush() {
+    git status
     if git diff-index --quiet HEAD; then
         echo "there no files to changed"
         exit 0
