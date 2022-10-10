@@ -61,8 +61,9 @@ function getNameToNewFile() {
 }
 
 function doPush() {
-    git status
-    if git diff-index --quiet HEAD; then
+    echo "git::::"
+    git diff
+    if [ -z "$(git diff)" ]; then 
         echo "there no files to changed"
         exit 0
     elif [[ ! $(pwd) =~ \/$TEMP_REPO_NAME$ ]]; then
@@ -79,5 +80,7 @@ echo "cloning the wiki repository"
 getWikiRepository
 echo "generating the markdown file"
 putEachSvgFile
+echo "setting configs of git"
+SetConfigsGit
 echo "starting the function doPush"
 doPush
