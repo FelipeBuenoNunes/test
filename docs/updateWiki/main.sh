@@ -59,6 +59,8 @@ function getNameToNewFile() {
 }
 
 function doPush() {
+    echo "git::::"
+    git diff
     if [ -z "$(git diff)" ]; then 
         echo "there no files to changed"
         exit 0
