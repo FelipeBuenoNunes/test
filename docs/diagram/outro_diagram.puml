@@ -19,7 +19,7 @@ group first
     return 1e
     test-> oloko++: 6
     return 1f
-    test-> oloko++: 9
+    test-> oloko++: 10
     return 1g
 end
 @enduml
