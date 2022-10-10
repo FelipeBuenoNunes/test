@@ -30,14 +30,14 @@ function getWikiRepository() {
     # move to wiki repository
     cd $TEMP_REPO_NAME 
     #Update path local
-    PATH_DIAGRAMS_LOCAL=../$(echo $GITHUB_REPOSITORY | grep '/[[:alnum:]\-\.\_]\+$' --only-matching)$PATH_DIAGRAMS
+    PATH_DIAGRAMS_LOCAL=..$(echo $GITHUB_REPOSITORY | grep '/[[:alnum:]\-\.\_]\+$' --only-matching)$PATH_DIAGRAMS
     # remove old file
     rm diagrams.md
 }
 
 # for each in svg file and put in markdown
 function putEachSvgFile() {
-    FILES_SVG=$(ls .$PATH_DIAGRAMS_LOCAL -t -U | grep '^[a-z]+(?:_[a-z]+)*\.svg$')
+    FILES_SVG=$(ls $PATH_DIAGRAMS_LOCAL -t -U | grep '^[a-z]+(?:_[a-z]+)*\.svg$')
     for i in $FILES_SVG; do
         doMarkdown $i
     done
