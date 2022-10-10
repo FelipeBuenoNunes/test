@@ -1,9 +1,9 @@
 #!/bin/bash 
-
+GITHUB_REPOSITORY="FelipeBuenoNunes/test"
 PATH_DIAGRAMS="/docs/diagram"
-PATH_DIAGRAMS_LOCAL= $(echo $GITHUB_REPOSITORY | grep '/[[:alnum:]\-\.\_]\+$')$PATH_DIAGRAMS
-PATH_DIAGRAMS_GIT="https://github.com/${GITHUB_REPOSITORY}/tree/main$PATH_DIAGRAMS"
-
+PATH_DIAGRAMS_LOCAL=$PATH_DIAGRAMS
+PATH_DIAGRAMS_GIT="https://github.com/${GITHUB_REPOSITORY}/blob/main$PATH_DIAGRAMS"
+echo $PATH_DIAGRAMS_LOCAL
 # if [ -z "$TOKEN" ]; then
 #     echo "Token is not specified"
 #     exit 1
@@ -30,21 +30,37 @@ function getWikiRepository() {
     git clone "https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.wiki.git" "$TEMP_REPO_NAME"
     # move to wiki repository
     cd $TEMP_REPO_NAME 
+    #Update path local
+    PATH_DIAGRAMS_LOCAL=../$(echo $GITHUB_REPOSITORY | grep '/[[:alnum:]\-\.\_]\+$' --only-matching)$PATH_DIAGRAMS
+    # remove old file
+    rm diagrams.md
 }
 
 function getAllSvgs() {
-    FILES_SVG=$(ls .$PATH_DIAGRAMS -t -U | grep '\.svg')
+    FILES_SVG=$(ls .$PATH_DIAGRAMS_LOCAL -t -U | grep '\.svg')
     for i in $FILES_SVG; do
         doMarkdown $i
     done
 }
 
 function doMarkdown() {
-    file_path="$PATH_DIAGRAMS_GIT/$i"
-    echo "## first"
-    echo $file_path
+    file_path="$PATH_DIAGRAMS_GIT/$1"
+    getNameToNewFile $1
+    echo "## $name_new_file" >> diagrams.md
+    echo "![$1]($file_path)" >> diagrams.md
 }
 
+function getNameToNewFile() {
+    name_new_file=`expr match "$1" '\([a-z_]*\)'` # remove .svg
+    name_new_file=${name_new_file//_/ } # replace _ to blank space
+    name_new_file=${name_new_file^} # first letter uppercase
+}
+
+function doPush() {
+    git diff
+}
+
+getWikiRepository
 getAllSvgs
 
 # echo "#BOA" >> Funfou.md

@@ -1,8 +1,4 @@
-## first
-https://github.com/FelipeBuenoNunes/test/./docs/diagram//i
-## first
-https://github.com/FelipeBuenoNunes/test//docs/diagram//i
-## first
-https://github.com/FelipeBuenoNunes/test//docs/diagram//i
-## first
-https://github.com/FelipeBuenoNunes/test//docs/diagram/first_diagram.svg
+## Outro diagram
+![outro_diagram.svg](https://github.com/FelipeBuenoNunes/test/blob/main/docs/diagram/outro_diagram.svg)
+## First diagram
+![first_diagram.svg](https://github.com/FelipeBuenoNunes/test/blob/main/docs/diagram/first_diagram.svg)

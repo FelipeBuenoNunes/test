@@ -1,0 +1,25 @@
+@startuml
+
+!theme sla from .
+
+participant test
+database oloko
+database sera
+
+group first
+    test-> oloko++: 1
+    return 1a
+    test-> sera++: 2
+    return 1b
+    test-> sera++: 3
+    return 1c
+    oloko-> sera++: 4
+    return 1d
+    oloko-> sera++: 5
+    return 1e
+    test-> oloko++: 6
+    return 1f
+    test-> oloko++: 9
+    return 1g
+end
+@enduml
