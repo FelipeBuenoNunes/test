@@ -39,6 +39,7 @@ function getWikiRepository() {
 function putEachSvgFile() {
     ls $PATH_DIAGRAMS_LOCAL
     FILES_SVG=$(ls $PATH_DIAGRAMS_LOCAL -t -U | grep -oP "\b[a-z]+(_[a-z]+)*.svg\b")
+    echo $FILES_SVG
     for i in $FILES_SVG; do
         doMarkdown $i
     done
