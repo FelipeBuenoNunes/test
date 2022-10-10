@@ -50,7 +50,6 @@ function doMarkdown() {
     getNameToNewFile $1
     echo "## $name_new_file" >> diagrams.md
     echo "![$1]($file_path)" >> diagrams.md
-    cat diagrams.md
 }
 
 # build the header for each diagram, 
