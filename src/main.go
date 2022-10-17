@@ -6,7 +6,7 @@ import (
 	_ "github.com/lipefebn/spotify-crud/docs"
 	"github.com/lipefebn/spotify-crud/src/core/handler"
 )
-
+//
 // @title Fiber Example API
 // @version 1.0
 // @description This is a sample swagger for Fiber
